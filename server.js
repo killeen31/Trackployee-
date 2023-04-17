@@ -12,7 +12,25 @@ const connection = mysql.createConnection({
 });
 
 // THEN I am presented with the following options: view all departments, view all roles, view all employees, add a department, add a role, add an employee, and update an employee role
-
+function promptUser() {
+    return inquirer.prompt([
+        {
+            type: "list",
+            name: "action",
+            message: "What would you like to do?",
+            choices: [
+                "View all departments",
+                "View all roles",
+                "View all employees",
+                "Add a department",
+                "Add a role",
+                "Add an employee",
+                "Update an employee role",
+                "Exit",
+            ],
+        },
+    ]);
+}
 // THEN I am presented with a formatted table showing department names and department ids
 
 // THEN I am presented with the job title, role id, the department that role belongs to, and the salary for that role
