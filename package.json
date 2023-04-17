@@ -1,7 +1,9 @@
 {
   "dependencies": {
+    "cfonts": "^3.1.1",
     "express": "^4.18.2",
-    "inquirer": "^8.2.4"
+    "inquirer": "^8.2.4",
+    "mysql2": "^3.2.3"
   },
   "name": "trackpolyee",
   "description": "This is a command line application that uses MySQL to create a database to sort and track emloyees",

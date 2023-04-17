@@ -29,8 +29,28 @@ function promptUser() {
                 "Exit",
             ],
         },
-    ]);
+    ])
+        .then((answer) => {
+            switch (answer.action) {
+                case "View all departments":
+                    viewAllDepartments();
+                    break;
+                case "View all roles":
+                    viewAllRoles();
+                    break;
+            }
+        })
 }
+
+const viewAllDepartments = () => {
+    connection.query('SELECT * FROM department', function(err, res) {
+        if(err) throw err;
+        console.table(res)
+        promptUser()
+    })
+}
+
+promptUser()
 // THEN I am presented with a formatted table showing department names and department ids
 
 // THEN I am presented with the job title, role id, the department that role belongs to, and the salary for that role
