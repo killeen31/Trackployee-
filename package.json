@@ -1,12 +1,12 @@
 {
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "inquirer": "^8.2.4"
   },
   "name": "trackpolyee",
   "description": "This is a command line application that uses MySQL to create a database to sort and track emloyees",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
