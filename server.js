@@ -38,10 +38,29 @@ function promptUser() {
                 case "View all roles":
                     viewAllRoles();
                     break;
+                    case "View all employees":
+                    viewAllEmployees();
+                    break;
+                    case "Add a department":
+                    addDepartment();
+                    break;
+                    case "Add a role":
+                    addRole();
+                    break;
+                    case "add an employee":
+                    addEmployee();
+                    break;
+                    case "Update an employee role":
+                    updateEmployeeRole();
+                    break;
+                    case "Exit":
+                    connection.end();
+                    console,log("Goodbye!")
+                    break;
             }
         })
 }
-
+// THEN I am presented with a formatted table showing department names and department ids
 const viewAllDepartments = () => {
     connection.query('SELECT * FROM department', function(err, res) {
         if(err) throw err;
@@ -49,9 +68,22 @@ const viewAllDepartments = () => {
         promptUser()
     })
 }
+const viewAllRoles = () => {
+    connection.query('SELECT * FROM role', function(err, res) {
+        if(err) throw err;
+        console.table(res)
+        promptUser()
+    })
+}
+const viewAllEmployees = () => {
+    connection.query('SELECT * FROM employee', function(err, res) {
+        if(err) throw err;
+        console.table(res)
+        promptUser()
+    })
+}
 
-promptUser()
-// THEN I am presented with a formatted table showing department names and department ids
+promptUser();
 
 // THEN I am presented with the job title, role id, the department that role belongs to, and the salary for that role
 
