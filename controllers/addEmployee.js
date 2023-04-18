@@ -69,6 +69,8 @@ const addEmployee = (promptUser) => {
                 }
             )
         })
-    })
+    }).catch((err) => console.log(err))
 }
+
+module.exports = addEmployee
          
