@@ -1,15 +1,16 @@
 const queries = {
     allEmployees:
         `SELECT e.id, e.first_name, e.last_name, title, dept_name AS department, salary, CONCAT(m.first_name, ' ', m.last_name) AS manager
-    FROM employee e
-    INNER JOIN roles
-    ON e.role_id = roles.id
-    INNER JOIN departments
-    ON roles.department_id = departments.id
-    LEFT JOIN employees m
-    ON e.manager_id = m.id;`,
+        FROM employee e
+        INNER JOIN roles
+        ON e.role_id = roles.id
+        INNER JOIN departments
+        ON roles.department_id = departments.id
+        LEFT JOIN employees m
+        ON e.manager_id = m.id;`,
 
-    allEmployeesByMng: `SELECT e.id, e.first_name, e.last_name, title, dept_name AS department, salary, CONCAT(m.first_name, ' ’, m.last_name) AS manager
+    allEmployeesByMng:
+        `SELECT e.id, e.first_name, e.last_name, title, dept_name AS department, salary, CONCAT(m.first_name, ' ’, m.last_name) AS manager
         FROM employees e
         INNER JOIN roles
         ON e.role_id = roles.id

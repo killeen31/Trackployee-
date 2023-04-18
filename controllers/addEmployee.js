@@ -34,48 +34,41 @@ const addEmployee = (promptUser) => {
                 name:"managerName",
                 message:"Who is the Employee's Manager?",
                 choices: allManagers,
-                when: (answers) => answers.manager === "Yes"
+                when: (answers) => answers.manager === "Yes",
             }
-
-        ]))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const addEmployee = (promptUser) => {
-//     inquirer.prompt([
-//         {
-//             type:"input",
-//             message:"What is the name of the Employee?",
-//             name:"employeeName",
-//         }
-//     ])
-//     .then((answers)=>{
-//         connection.query(
-//             "INSERT INTO * employees SET ?",
-//             {
-//                 first_name:answers.employeeName
-//             },
-//             function(err){
-//                 console.log(err)
-//                 if (err) throw err
-//                 console.log('Sucessfully added new Employee!')
-//                 promptUser()
-//             }
-//         )
-//     }
-
-// module.exports = addEmployee 
+        ])
+        .then((answers)=>{
+            connection.query(
+                "INSERT INTO employees SET ?",
+                {
+                    first_name:answers.firstName,
+                    last_name:answers.lastName,
+                    role_id:Number(answers.role),
+                    manager_id:Number(answers.managerName),
+                },
+                function(err){
+                    console.log(err)
+                    if (err) throw err
+                    console.log('Sucessfully added new Employee!')
+                    promptUser()
+                }  
+            );
+        } else {
+            connection.query(
+                "INSERT INTO employees SET ?",
+                {
+                    first_name:answers.firstName,
+                    last_name:answers.lastName,
+                    role_id:Number(answers.role),
+                },
+                function(err){
+                    console.log(err)
+                    if (err) throw err
+                    console.log('Sucessfully added new Employee!')
+                    promptUser()
+                }
+            )
+        })
+    })
+}
+         
