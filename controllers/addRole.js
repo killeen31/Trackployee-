@@ -35,5 +35,7 @@ const addRole = (promptUser) => {
                 promptUser()
             }
         )
-    })
+    });
+    console.log('The role has been added!')
 }
+module.exports = addRole

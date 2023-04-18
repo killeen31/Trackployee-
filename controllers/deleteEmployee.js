@@ -18,3 +18,5 @@ const toDeleteEmployee = () => {
         .catch((err) => reject(err))
     });
 }
+
+module.exports = toDeleteEmployee

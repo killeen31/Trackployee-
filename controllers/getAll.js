@@ -1,6 +1,7 @@
 const utils = require('../utils');
 const connection = require('../config/connection.js');
 
+
 const queryAsync = utils.promisify(connection.query).bind(connection);
 
 const getAllEmployees = async (value) => {

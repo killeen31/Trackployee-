@@ -1,5 +1,7 @@
 const inquirer = require("inquirer")
 const connection = require("../config/connection.js")
+const { getAllRoles, getAllEmployees } = require("./getAll.js")
+const { allRoles, allManagers } = require("./getAll.js")
 
 
 const addEmployee = (promptUser) => {
