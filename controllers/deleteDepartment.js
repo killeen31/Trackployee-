@@ -1,7 +1,4 @@
 
-
- 
-
 const inquirer = require('inquirer');
 const { getAllDepts } = require('./getAll');
 
