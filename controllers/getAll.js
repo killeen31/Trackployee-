@@ -1,8 +1,8 @@
-const utils = require('../utils');
+const util = require('util');
 const connection = require('../config/connection.js');
 
 
-const queryAsync = utils.promisify(connection.query).bind(connection);
+const queryAsync = util.promisify(connection.query).bind(connection);
 
 const getAllEmployees = async (value) => {
     try {
@@ -34,9 +34,9 @@ const getAllDepartments = async (value) => {
 
 };
 
-const getManagers = async (value) => {
+const getAllManagers = async (value) => {
     try {
-    const rows = await queryAsync('SELECT * FROM employees WHERE manager_id IS NULL');
+    const rows = await queryAsync('SELECT * FROM employees WHERE manager_id IS NOT NULL');
     return rows.map(manager => ({name: `${manager.first_name} ${manager.last_name}`, value: manager.id}));
 } catch (err) {
     console.log(err);
@@ -44,4 +44,4 @@ const getManagers = async (value) => {
 
 };
 
-module.exports = { getAllEmployees, getAllRoles, getAllDepartments, getManagers };
+module.exports = { getAllEmployees, getAllRoles, getAllDepartments, getAllManagers };

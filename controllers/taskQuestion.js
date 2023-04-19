@@ -10,10 +10,18 @@ const taskQuestion = [
             "View Employees by Manager",
             "View all Departments",
             "View all Roles",
-            new inquirer.Separator("=== VIEW INFO ==="),
+            new inquirer.Separator("=== ADD INFO ==="),
             "Add Employee",
             "Add Department",
             "Add Role",
+            new inquirer.Separator("=== UPDATE INFO ==="),
+            "Update Employee",
+            new inquirer.Separator("=== DELETE INFO ==="),
+            "Delete Employee",
+            "Delete Department",
+            "Delete Role",
+            new inquirer.Separator("=== EXIT ==="),
+            "Exit"
         ]
     }
 ]

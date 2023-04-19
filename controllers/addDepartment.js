@@ -11,7 +11,7 @@ const addDepartment = (promptUser) => {
     ])
     .then((answers)=>{
         connection.query(
-            "INSERT INTO * departments SET ?",
+            "INSERT INTO departments SET ?",
             {
                 dept_name:answers.deptName
             }, 
@@ -25,4 +25,4 @@ const addDepartment = (promptUser) => {
     })
 }
 
-module.exports = addDepartment 
+module.exports = addDepartment

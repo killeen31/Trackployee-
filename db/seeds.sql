@@ -28,7 +28,7 @@ VALUES
       ('Malia', 'Brown', 5, null),
       ('Sarah', 'Haney', 6, 5),
       ('Tom', 'Aquinas', 7, null),
-      ('Mary', 'Tyler', 8, 7),
+      ('Mary', 'Tyler', 8, 9),
       ('Steve', 'Leb', 9, null),
       ('Emma', 'Stojova', 10, 9);
 

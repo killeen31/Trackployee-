@@ -55,24 +55,28 @@ const addEmployee = (promptUser) => {
                     promptUser()
                 }  
             );
-        } else {
-            connection.query(
-                "INSERT INTO employees SET ?",
-                {
-                    first_name:answers.firstName,
-                    last_name:answers.lastName,
-                    role_id:Number(answers.role),
-                },
-                function(err){
-                    console.log(err)
-                    if (err) throw err
-                    console.log('Sucessfully added new Employee!')
-                    promptUser()
-                }
-            )
-        })
-    }).catch((err) => console.log(err))
+        }
+    )})
+    .catch((err) => console.log(err))
 }
 
+//         } else {
+//             connection.query(
+//                 "INSERT INTO employees SET ?",
+//                 {
+//                     first_name:answers.firstName,
+//                     last_name:answers.lastName,
+//                     role_id:Number(answers.role),
+//                 },
+//                 function(err){
+//                     console.log(err)
+//                     if (err) throw err
+//                     console.log('Sucessfully added new Employee!')
+//                     promptUser()
+//                 }
+//             )
+//         })
+//     }).catch((err) => console.log(err))
+// }
+
 module.exports = addEmployee
-         

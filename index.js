@@ -12,7 +12,7 @@ const getAll = require("./controllers/getAll")
 const taskQuestion = require("./controllers/taskQuestion")
 const updateEmployee = require("./controllers/updateEmployee")
 const viewByMgr = require("./controllers/viewByMgr")
-const quiries = require("./db/queries")
+const queries = require("./db/queries")
 
 // THEN I am presented with the following options: view all departments, view all roles, view all employees, add a department, add a role, add an employee, and update an employee role
 function promptUser() {
@@ -20,45 +20,44 @@ function promptUser() {
     .prompt(taskQuestion)
         .then((answers) => {
             const task = answers.task;
-            if (task === 'View all employees') {
-                dal.viewAll(queries.allEmployees).then((res) => askTask());
-            } else if (task === 'View employees by manager') {
-                viewByMng()
+            if (task === 'View all Employees') {
+                dal.viewAll(queries.allEmployees).then((res) => promptUser());
+            } else if (task === 'View Employees by Manager') {
+                viewByMgr()
                 .then((answers) => dal.viewAllBy(queries.allEmployeesByMng, 'm.id', answers.managerId))
-                .then(() => askTask());
-            } else if (task === 'View all roles') {
+                .then(() => promptUser());
+            }  else if (task === 'View all Roles') {
                 dal.viewAll(queries.allRoles)
-                .then(() => askTask());
-            } else if (task === 'View all departments') {
+                .then(() => promptUser());
+            } else if (task === 'View all Departments') {
                 dal.viewAll(queries.allDepts)
-                .then(() => askTask());
-            } else if (task === 'Add employee') {
-                addEmployee(askTask)
-               
-            } else if (task === 'Add role') {
-                addRole().then(() => askTask());
-            
-            } else if (task === 'Add department') {
-                addDept(askTask);
+                .then(() => promptUser());
+            } else if (task === 'Add Employee') {
+                addEmployee(promptUser);
+            } else if (task === 'Add Role') {
+                addRole().then(() => promptUser());
+            } 
+            // else if (task === 'Add department') {
+            //     addDept(promptUser);
                 
-            } else if (task === 'Update employee') {
-                updateEmployee().then(() => askTask())
+            // } else if (task === 'Update employee') {
+            //     updateEmployee().then(() => promptUser())
                 
-            } else if (task === 'Delete employee') {
-                toDeleteEmployee()
-                .then((answers) => dal.deleteFrom(queries.deleteId, 'employees', Number(answers.empToDelete)))
-                .then(() => askTask());
-            } else if (task === 'Delete role') {
-                toDeleteRole()
-                .then((answers) => dal.deleteFrom(queries.deleteId, 'roles', Number(answers.roleToDelete)))
-                .then(() => askTask());
-            } else if (task === 'Delete department') {
-                toDeleteDept()
-                .then((answers) => dal.deleteFrom(queries.deleteId, 'departments', Number(answers.deptToDelete)))
-                .then(() => askTask());
-            } else {
-                process.exit();
-            }
+            // } else if (task === 'Delete employee') {
+            //     toDeleteEmployee()
+            //     .then((answers) => dal.deleteFrom(queries.deleteId, 'employees', Number(answers.empToDelete)))
+            //     .then(() => promptUser());
+            // } else if (task === 'Delete role') {
+            //     toDeleteRole()
+            //     .then((answers) => dal.deleteFrom(queries.deleteId, 'roles', Number(answers.roleToDelete)))
+            //     .then(() => promptUser());
+            // } else if (task === 'Delete department') {
+            //     toDeleteDept()
+            //     .then((answers) => dal.deleteFrom(queries.deleteId, 'departments', Number(answers.deptToDelete)))
+            //     .then(() => promptUser());
+            // } else {
+            //     process.exit();
+            // }
         })
         .catch((err) => console.log(err));
 
