@@ -3,7 +3,6 @@ const connection = require("../config/connection.js")
 const { getAllRoles, getAllEmployees } = require("./getAll.js")
 const { allRoles, allManagers } = require("./getAll.js")
 
-
 const addEmployee = (promptUser) => {
 
     Promise.all([getAllRoles(), getAllEmployees()])
@@ -21,7 +20,7 @@ const addEmployee = (promptUser) => {
             },
             {
                 type:"list",
-                name:"role",   
+                name:"roleId",   
                 message:"What is the employee's role?",
                 choices: allRoles 
             },
@@ -45,7 +44,7 @@ const addEmployee = (promptUser) => {
                 {
                     first_name:answers.firstName,
                     last_name:answers.lastName,
-                    role_id:Number(answers.role),
+                    role_id:Number(answers.roleId),
                     manager_id:Number(answers.managerName),
                 },
                 function(err){
@@ -59,24 +58,4 @@ const addEmployee = (promptUser) => {
     )})
     .catch((err) => console.log(err))
 }
-
-//         } else {
-//             connection.query(
-//                 "INSERT INTO employees SET ?",
-//                 {
-//                     first_name:answers.firstName,
-//                     last_name:answers.lastName,
-//                     role_id:Number(answers.role),
-//                 },
-//                 function(err){
-//                     console.log(err)
-//                     if (err) throw err
-//                     console.log('Sucessfully added new Employee!')
-//                     promptUser()
-//                 }
-//             )
-//         })
-//     }).catch((err) => console.log(err))
-// }
-
 module.exports = addEmployee

@@ -14,13 +14,13 @@ const dal = {
         })
     },
     viewAllBy: function(query, colToSearch, valueOfCol) {
-        return new Promise((res, rej)=> {
-            connection.query(query, [colToSearch, valueOfCol], function(err, res) {
+        return new Promise((resolve, rej)=> {
+            connection.query(query, [colToSearch, valueOfCol], function(err, result) {
                 if (err) throw err;
                 console.log('\n');
-                console.table(res);
+                console.table(result);
                 console.log('\n');
-                resolve(res);
+                resolve(result);
             });
         })
     },

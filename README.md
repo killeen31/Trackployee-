@@ -11,54 +11,61 @@ This is a command line application that uses MySQL to create a database to sort 
 -License 
 
 # User Story 
-AS A small business owner
-I WANT to be able to write and save notes
-SO THAT I can organize my thoughts and keep track of tasks I need to complete
+AS A business owner
+I WANT to be able to view and manage the departments, roles, and employees in my company
+SO THAT I can organize and plan my business
 
 # Acceptance Criteria
-GIVEN a note-taking application
-WHEN I open the Note Taker
-THEN I am presented with a landing page with a link to a notes page
-WHEN I click on the link to the notes page
-THEN I am presented with a page with existing notes listed in the left-hand column, plus empty fields to enter a new note title and the note’s text in the right-hand column
-WHEN I enter a new note title and the note’s text
-THEN a Save icon appears in the navigation at the top of the page
-WHEN I click on the Save icon
-THEN the new note I have entered is saved and appears in the left-hand column with the other existing notes
-WHEN I click on an existing note in the list in the left-hand column
-THEN that note appears in the right-hand column
-WHEN I click on the Write icon in the navigation at the top of the page
-THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
+GIVEN a command-line application that accepts user input
+WHEN I start the application
+THEN I am presented with the following options: view all departments, view all roles, view all employees, add a department, add a role, add an employee, and update an employee role
+WHEN I choose to view all departments
+THEN I am presented with a formatted table showing department names and department ids
+WHEN I choose to view all roles
+THEN I am presented with the job title, role id, the department that role belongs to, and the salary for that role
+WHEN I choose to view all employees
+THEN I am presented with a formatted table showing employee data, including employee ids, first names, last names, job titles, departments, salaries, and managers that the employees report to
+WHEN I choose to add a department
+THEN I am prompted to enter the name of the department and that department is added to the database
+WHEN I choose to add a role
+THEN I am prompted to enter the name, salary, and department for the role and that role is added to the database
+WHEN I choose to add an employee
+THEN I am prompted to enter the employee’s first name, last name, role, and manager, and that employee is added to the database
+WHEN I choose to update an employee role
+THEN I am prompted to select an employee to update and their new role and this information is updated in the database
 
 
 # Decsription 
-This is a command-line application that uses Express.js on the backend to create a peronsal note taking application that allows the user to log specific notes throughout the day and then delete them from the log. 
+This is a command-line application that uses JavaScript, Express, mySQL, and node.js that allows a user to create, view, make changes and update their employee database from the command line. 
 
 
 # Installation 
-This app is installed by visiting my GitHub page and cloning my repository " " 
+This app is installed by visiting my GitHub page and cloning my repository "Trackployee" 
 This app was built with:
 Node.js 16.18.1
-JSON
 Javascript
-Express.js
-Heroku - (having some isssues right now but will upload to Heroku tomorrow)
+Express.js 4.18.2
+Heroku 
+Inquirer 8.2.4
+mysql2 3.2.3
 
 * Open the repo using vscode 
 
 # Usage
-This app is used to create personalized notes for the everyday busy person or employee who needs to keep track of their to do items. 
+This is an application to view and make changes to a database all from the command line of your terminal 
 How to Use: 
--Enter a title in the New Note line 
--Write the notes or list that you need to be put into that specific note 
--Save the note to the log
--You are able to delete the note using the trash can item next to the note name in the log 
+-Run node index and follow the list of options that you have to: 
+1)view employees, departments, and roles 
+2)Add employees, departments, or roles
+3)Delete emplpyees, departments, or roles
+4)update all three 
+5)view the roles by the manager 
 
 # What I learned 
-For this application I leanred how to utilize express.js to create a note taking tool for users to create personalised notes and lists. It also helped me to deepen my knowledge on the uses of GET and POST, and also how to create our own apis and link them throughout our code. 
+What I learned from this challenge was a lot actually, I feel like I am really getting to the point of being able to read the code really well, it taught me how to create a databse and then pull the information back from the database to be used in sorting information. I approached this differently at first as well so it also taught me that there are many ways to approach coding these challenges. Using mySQL for the first time was challenging but rewarding as well.  
 
 # Credits 
-This app can be credited to Jack Killeen with some help from the TAs and one tutoring session 
+This app can be credited to Jack Killeen with some help from the TAs and one tutoring session, we decided to change gears last second and pretty much rewite the code so one of the TAs helped a lot and lent me their github repo for reference
 
 GitHub - killeen31 
 

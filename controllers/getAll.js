@@ -11,9 +11,7 @@ const getAllEmployees = async (value) => {
 } catch (err) {
     console.log(err);
 }
-
 };
-
 const getAllRoles = async (value) => {
     try {
     const rows = await queryAsync('SELECT * FROM roles');
@@ -21,9 +19,7 @@ const getAllRoles = async (value) => {
 } catch (err) {
     console.log(err);
 }
-
 };
-
 const getAllDepartments = async (value) => {
     try {
     const rows = await queryAsync('SELECT * FROM departments');
@@ -31,9 +27,7 @@ const getAllDepartments = async (value) => {
 } catch (err) {
     console.log(err);
 }
-
 };
-
 const getAllManagers = async (value) => {
     try {
     const rows = await queryAsync('SELECT * FROM employees WHERE manager_id IS NOT NULL');
@@ -41,7 +35,5 @@ const getAllManagers = async (value) => {
 } catch (err) {
     console.log(err);
 }
-
 };
-
 module.exports = { getAllEmployees, getAllRoles, getAllDepartments, getAllManagers };

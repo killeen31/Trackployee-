@@ -18,5 +18,4 @@ const viewByMgr = () => {
         .catch((err) => reject(err))
     });
 }
-
 module.exports = viewByMgr;
