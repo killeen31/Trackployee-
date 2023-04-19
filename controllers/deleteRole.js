@@ -1,7 +1,7 @@
 const inquirer = require("inquirer")
 const { getAllRoles } = require("./getAll.js")
 
-const toDeleteRole = () => {
+const deleteRole = () => {
     return new Promise ((resolve, reject) => {
         getAllRoles()
         .then((allRoles) =>
@@ -19,4 +19,4 @@ const toDeleteRole = () => {
     });
 }
 
-module.exports = toDeleteRole
+module.exports = deleteRole

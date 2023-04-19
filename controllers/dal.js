@@ -3,13 +3,13 @@ const connection = require('../config/connection.js');
 
 const dal = {
     viewAll: function(query) {
-        return new Promise((res, rej)=>{
-            connection.query(query, function(err, res) {
+        return new Promise((resolve, rej)=>{
+            connection.query(query,(err, result) => {
                 if (err) throw err;
                 console.log('\n');
-                console.table(res);
+                console.table(result);
                 console.log('\n');
-                resolve(res);
+                resolve(result);
             });
         })
     },

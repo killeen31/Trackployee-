@@ -1,10 +1,10 @@
 
 const inquirer = require('inquirer');
-const { getAllDepts } = require('./getAll');
+const { getAllDepts, getAllDepartments } = require('./getAll');
 
-const toDeleteDept = () => {
+const deleteDepartment = () => {
     return new Promise ((resolve, reject) => {
-        getAllDepts()
+        getAllDepartments()
         .then((allDepts) =>
             inquirer.prompt([
                 {
@@ -20,7 +20,7 @@ const toDeleteDept = () => {
     });
 };
 
-module.exports = toDeleteDept;
+module.exports = deleteDepartment;
 
 
 

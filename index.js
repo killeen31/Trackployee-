@@ -21,7 +21,7 @@ function promptUser() {
         .then((answers) => {
             const task = answers.task;
             if (task === 'View all Employees') {
-                dal.viewAll(queries.allEmployees).then((res) => promptUser());
+                dal.viewAll(queries.allEmployees).then((result) => promptUser());
             } else if (task === 'View Employees by Manager') {
                 viewByMgr()
                 .then((answers) => dal.viewAllBy(queries.allEmployeesByMng, 'm.id', answers.managerId))
@@ -36,34 +36,33 @@ function promptUser() {
                 addEmployee(promptUser);
             } else if (task === 'Add Role') {
                 addRole().then(() => promptUser());
-            } 
-            // else if (task === 'Add department') {
-            //     addDept(promptUser);
-                
-            // } else if (task === 'Update employee') {
-            //     updateEmployee().then(() => promptUser())
-                
-            // } else if (task === 'Delete employee') {
-            //     toDeleteEmployee()
-            //     .then((answers) => dal.deleteFrom(queries.deleteId, 'employees', Number(answers.empToDelete)))
-            //     .then(() => promptUser());
-            // } else if (task === 'Delete role') {
-            //     toDeleteRole()
-            //     .then((answers) => dal.deleteFrom(queries.deleteId, 'roles', Number(answers.roleToDelete)))
-            //     .then(() => promptUser());
-            // } else if (task === 'Delete department') {
-            //     toDeleteDept()
-            //     .then((answers) => dal.deleteFrom(queries.deleteId, 'departments', Number(answers.deptToDelete)))
-            //     .then(() => promptUser());
-            // } else {
-            //     process.exit();
-            // }
+            }  else if (task === 'Add Department') {
+                addDepartment(promptUser);
+            } else if (task === 'Update Employee') {
+                updateEmployee().then(() => promptUser()) 
+            }  else if (task === 'Delete Employee') {
+                deleteEmployee()
+                .then((answers) => dal.deleteFrom(queries.deleteId, 'employees', Number(answers.empToDelete)))
+                .then(() => promptUser());
+            } else if (task === 'Delete Role') {
+                deleteRole()
+                .then((answers) => dal.deleteFrom(queries.deleteId, 'roles', Number(answers.roleToDelete)))
+                .then(() => promptUser());
+            } else if (task === 'Delete Department') {
+                deleteDepartment()
+                .then((answers) => dal.deleteFrom(queries.deleteId, 'departments', Number(answers.deptToDelete)))
+                .then(() => promptUser());
+            } else {
+                process.exit();
+            }
         })
         .catch((err) => console.log(err));
 
     }
 
     promptUser();
+
+    module.exports = promptUser;
 
 
 

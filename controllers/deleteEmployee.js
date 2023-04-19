@@ -1,7 +1,7 @@
 const inquirer = require("inquirer")
 const { getAllEmployees } = require("./getAll.js")
 
-const toDeleteEmployee = () => {
+const deleteEmployee = () => {
     return new Promise ((resolve, reject) => {
         getAllEmployees()
         .then((allEmployees) =>
@@ -19,4 +19,4 @@ const toDeleteEmployee = () => {
     });
 }
 
-module.exports = toDeleteEmployee
+module.exports = deleteEmployee

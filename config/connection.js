@@ -1,4 +1,5 @@
 const mysql = require('mysql2')
+const { promisify } = require('util')
 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -14,3 +15,4 @@ connection.connect((err)=>{
 })
 
 module.exports = connection 
+module.exports.query = promisify(connection.query).bind(connection)

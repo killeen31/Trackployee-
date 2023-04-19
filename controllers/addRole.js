@@ -1,5 +1,6 @@
 const inquirer = require("inquirer")
-const connection = require("../config/connection.js")
+const connection = require("../config/connection.js");
+const { allDepts } = require("../db/queries.js");
 
 const addRole = (promptUser) => {
     inquirer.prompt([
@@ -17,7 +18,7 @@ const addRole = (promptUser) => {
             type:"list",
             name:"deptID",
             message:"What is the Department for this Role?", 
-            choices: allDepartments
+            choices: allDepts
         }
     ])
     .then((answers)=>{
